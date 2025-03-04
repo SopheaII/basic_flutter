@@ -213,7 +213,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 11. Stack - Overlapping widgets
             SizedBox(
               height: 200,
               child: Stack(
@@ -275,6 +274,14 @@ class _BasicWidgetState extends State<BasicWidget> {
                 if (loadingProgress == null) return child;
                 return const CircularProgressIndicator();
               },
+            ),
+            const SizedBox(height: 20),
+
+            Image.asset(
+              'assets/icons/icUser.png',
+              width: 150,
+              height: 150,
+              fit: BoxFit.cover,
             ),
             const SizedBox(height: 20),
 
