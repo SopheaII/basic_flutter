@@ -30,7 +30,6 @@ class _BasicWidgetState extends State<BasicWidget> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        // 1. Padding - Adds space around content
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +44,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 2. TextField - Input field
             TextField(
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
@@ -92,7 +90,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 3. Expanded - Takes available space
             Row(
               children: [
                 Expanded(
@@ -107,7 +104,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 4. Wrap - Wraps children to next line
             Wrap(
               spacing: 8.0,
               runSpacing: 4.0,
@@ -121,7 +117,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 5. Checkbox - Toggle option
             Row(
               children: [
                 Checkbox(
@@ -134,12 +129,11 @@ class _BasicWidgetState extends State<BasicWidget> {
                   activeColor: Colors.green,
                   checkColor: Colors.white,
                 ),
-                const Text('Agree to terms'),
+                const Text(' Agree to terms'),
               ],
             ),
             const SizedBox(height: 20),
 
-            // 6. Radio - Single selection
             Column(
               children: [
                 RadioListTile(
@@ -168,7 +162,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 7. Divider - Horizontal line
             const Divider(
               color: Colors.grey,
               thickness: 2,
@@ -177,7 +170,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 8. ListTile - List item layout
             ListTile(
               leading: const Icon(Icons.person),
               title: const Text('John Doe'),
@@ -188,7 +180,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 9. Switch - Toggle switch
             Row(
               children: [
                 Switch(
@@ -206,7 +197,6 @@ class _BasicWidgetState extends State<BasicWidget> {
             ),
             const SizedBox(height: 20),
 
-            // 10. Slider - Range selection
             Slider(
               value: _sliderValue,
               min: 0.0,
@@ -220,6 +210,42 @@ class _BasicWidgetState extends State<BasicWidget> {
               },
               activeColor: Colors.blue,
               inactiveColor: Colors.grey,
+            ),
+            const SizedBox(height: 20),
+
+            // 11. Stack - Overlapping widgets
+            SizedBox(
+              height: 200,
+              child: Stack(
+                alignment: Alignment.center,
+                clipBehavior: Clip.none,
+                children: [
+                  Container(
+                    width: 150,
+                    height: 150,
+                    color: Colors.blue[200],
+                  ),
+                  Positioned(
+                    top: 0,
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: Colors.red[200],
+                    ),
+                  ),
+                  const Positioned(
+                    bottom: 10,
+                    child: Text(
+                      'Stacked!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 20),
 
