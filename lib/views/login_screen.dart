@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:app_test/controllers/user_controller.dart';
 import 'package:app_test/views/register_screen.dart';
 import 'package:app_test/views/home_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:app_test/bloc/user_bloc.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,7 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
   void _login() async {
     final username = _usernameController.text;
     final password = _passwordController.text;
-    final user = await _userController.login(username, password);
+    final userBloc = BlocProvider.of<UserBloc>(context); // Get UserBloc instance
+
+    final user = await _userController.login(username, password, userBloc); // Pass UserBloc
     if (user != null) {
       Navigator.pushReplacement(
         context,

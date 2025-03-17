@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_test/views/activity_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:app_test/bloc/user_bloc.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -26,16 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.notifications),
-            onPressed: () {},
-          ),
-        ],
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.blue, // Set background color
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.blue,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.history), label: 'Pickup History'),
@@ -81,6 +79,26 @@ class HomeContent extends StatelessWidget {
             ),
           ),
           // Add recent activity list here
+          BlocBuilder<UserBloc, UserState>(
+            builder: (context, state) {
+              if (state is UserLoaded) {
+                final user = state.user;
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Welcome, ${user.userName}!'),
+                      Text('Email: ${user.email}'),
+                    ],
+                  ),
+                );
+              } else if (state is UserInitial) {
+                return Center(child: Text('No user information available.'));
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
+            },
+          ),
         ],
       ),
     );
