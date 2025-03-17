@@ -12,7 +12,7 @@ class _BasicWidgetState extends State<BasicWidget> {
   int _radioValue = 0;
   bool _switchValue = false;
   double _sliderValue = 0.5;
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +31,8 @@ class _BasicWidgetState extends State<BasicWidget> {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+        child: 
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
@@ -290,7 +291,8 @@ class _BasicWidgetState extends State<BasicWidget> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: const Padding(
+              child: 
+              const Padding(
                 padding: EdgeInsets.all(16),
                 child: Text('This is a Card'),
               ),
