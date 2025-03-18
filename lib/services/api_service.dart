@@ -5,7 +5,7 @@ import 'package:app_test/models/activity_model.dart'; // Ensure this import exis
 import 'package:app_test/services/storage_service.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://localhost:5167';
+  static const String baseUrl = 'https://pay1.jetdev.life';
   final StorageService _storageService = StorageService();
 
   Future<User?> login(String email, String password) async {
